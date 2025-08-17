@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 
 
 if (!process.env.TOKEN || !process.env.OPENROUTER_KEY) {
-  console.error("❌ Missing Discord token or OpenRouter API key in .env file!");
+  console.error(" Missing Discord token or OpenRouter API key in .env file!");
   process.exit(1);
 }
 
@@ -46,7 +46,7 @@ Always make the response sound like Deadpool is talking directly to the user.
     });
 
     if (!response.ok) {
-      console.error("❌ OpenRouter API returned error status:", response.status);
+      console.error("OpenRouter API returned error status:", response.status);
       return "Deadpool is temporarily speechless due to technical issues.";
     }
 
@@ -64,7 +64,7 @@ Always make the response sound like Deadpool is talking directly to the user.
       ? reply
       : "Deadpool is temporarily speechless... which is extremely rare.";
   } catch (err) {
-    console.error("❌ Error fetching from OpenRouter:", err);
+    console.error(" Error fetching from OpenRouter:", err);
     return "Deadpool tried to speak, but the internet ate his words.";
   }
 }
@@ -97,4 +97,5 @@ client.on("messageCreate", async (message) => {
 });
 
 client.login(process.env.TOKEN);
+
 
