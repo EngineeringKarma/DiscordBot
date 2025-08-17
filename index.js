@@ -1,10 +1,10 @@
 require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 
-// Node 18+ has native fetch, but for older versions install node-fetch v2
+
 const fetch = require("node-fetch"); 
 
-// Safety check: Ensure API keys exist
+
 if (!process.env.TOKEN || !process.env.OPENROUTER_KEY) {
   console.error("❌ Missing Discord token or OpenRouter API key in .env file!");
   process.exit(1);
@@ -70,7 +70,7 @@ Always make the response sound like Deadpool is talking directly to the user.
 }
 
 client.once("ready", () => {
-  console.log(`✅ Logged in as ${client.user.tag}`);
+  console.log(` Logged in as ${client.user.tag}`);
 });
 
 client.on("messageCreate", async (message) => {
@@ -89,7 +89,7 @@ client.on("messageCreate", async (message) => {
     console.log("💬 Reply Text:", replyText);
     await message.reply(replyText);
   } catch (error) {
-    console.error("❌ Error replying:", error);
+    console.error(" Error replying:", error);
     await message.reply(
       "Deadpool here — something broke and my mouth went silent. Oops!"
     );
@@ -97,3 +97,4 @@ client.on("messageCreate", async (message) => {
 });
 
 client.login(process.env.TOKEN);
+
